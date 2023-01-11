@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML 5 Boilerplate</title>
+  <!-- link rel="stylesheet" href="style.css" -->
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+    }
+
+    button {
+      display: flex;
+      height: 80vh;
+      width: fit-content;
+      justify-content: center;
+      background: black;
+      border: none;
+    }
+
+    #evan-img {
+      transition: 200ms;
+    }
+
+    #evan-img:hover {
+      transform: scale(1.2);
+      transition: 200ms;
+    }
+
+    #evan-img:active {
+      filter: brightness(50%);
+      transition: 50ms;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const create_confetti = () => {
+      var x = Math.random() * innerWidth;
+      var y = Math.random() * innerHeight;
+
+      var image = document.createElement("img");
+      image.src = "./croppedevan.jpeg";
+      image.style.position = "absolute";
+      image.style.top = y + "px";
+      image.style.left = x + "px";
+      var body = document.querySelector("body");
+      body.appendChild(image);
+    };
+
+    const clicked = () => {
+      for (let i = 0; i < 10; i++) {
+        create_confetti();
+      }
+    };
+  </script>
+  <div id="normal">
+    <h1>Evan Lim Bot</h1>
+    <p>PRESS EVAN TO START</p>
+    <button onclick="clicked();"><img src="./croppedevan.jpeg" id="evan-img"></button>
+  </div>
+</body>
